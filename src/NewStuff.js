@@ -5,7 +5,7 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 
 const StyledGraphImg = styled(GraphImg)`
-max-width: 250px;
+width: 250px;
 `
 const Wrapper = styled.div`
   display: flex;
