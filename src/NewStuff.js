@@ -2,16 +2,27 @@ import React from 'react';
 import GraphImg from 'graphcms-image';
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag';
+import styled from 'styled-components';
+
+const StyledGraphImg = styled(GraphImg)`
+max-width: 250px;
+`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+`
 
 const NewStuff = ({ data: { loading, error, images } }) => {
   if (error) return <h1>Shit Cra Cra {console.log(error)}</h1>
   if(!loading) {
       return (
-	      <div>
+	      <Wrapper>
 	  {images.map((image, handle) => (
-        <GraphImg key={handle} image={image} maxWidth={100} maxheight={100}/>
-      ))};
-        </div>
+        <StyledGraphImg key={handle} image={image} maxWidth={500} withWebp={true} fit="clip"/>
+      ))}
+        </Wrapper>
         )
       }
       return <h1>loading</h1>
